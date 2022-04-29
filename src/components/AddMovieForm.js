@@ -24,14 +24,14 @@ export default function AddMovie (props) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // axios.put(`http://localhost:9000/api/movies/${id}`, movie)
-        //     .then(res=>{
-        //         setMovies(res.data);
-        //         push(`/movies/${movie.id}`);
-		// 	})
-		// 	.catch(err=>{
-		// 		console.log(err);
-		// 	})
+        axios.post(`http://localhost:9000/api/movies`, movie)
+            .then(res => {
+                setMovies(res.data)
+                push(`/movies`)
+            })
+            .catch(err => {
+                debugger
+            })
 	}
 	
 	const { title, director, genre, metascore, description } = movie;
